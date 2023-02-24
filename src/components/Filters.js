@@ -1,12 +1,162 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
-import { FaCheck } from 'react-icons/fa'
+import React from "react";
+import styled from "styled-components";
+import { useFilterContext } from "../context/filter_context";
+import { getUniqueValues, formatPrice } from "../utils/helpers";
+import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
-  return <h4>filters</h4>
-}
+  const {
+    filters: {
+      text,
+      category,
+      company,
+      color,
+      min_price,
+      max_price,
+      price,
+      shipping,
+    },
+    updateFilters,
+    clearFilters,
+    all_products,
+  } = useFilterContext();
+
+  const categories = getUniqueValues(all_products, "category");
+  const companies = getUniqueValues(all_products, "company");
+  const colors = getUniqueValues(all_products, "colors");
+
+  //console.log(categories);
+  //console.log(companies);
+  //console.log(colors);
+
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="form-control">
+            <input
+              type="text"
+              name="text"
+              placeholder="search"
+              className="search-input"
+              value={text}
+              onChange={updateFilters}
+            />
+            {/*//make sure name is the exact same as the state value-text*/}
+          </div>
+          <div className="form-control">
+            <h5>Category</h5>
+            <div>
+              {categories.map((c, index) => (
+                <button
+                  type="button"
+                  key={index}
+                  onClick={updateFilters}
+                  name="category"
+                  className={`${
+                    category === c.toLowerCase() ? "active" : null
+                  }`}
+                >
+                  {/*//make sure name is the exact same as the state value-category*/}
+
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="form-control">
+            <h5>Company</h5>
+            <div>
+              {/*//make sure name is the exact same as the state value-company*/}
+
+              <select
+                name="company"
+                value={company}
+                onChange={updateFilters}
+                className="company"
+              >
+                {companies.map((c, index) => (
+                  <option key={index} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="form-control">
+            <h5>Colors</h5>
+            <div className="colors">
+              {colors.map((c, index) => {
+                if (c === "all") {
+                  return (
+                    <button
+                      key={index}
+                      onClick={updateFilters}
+                      name="color"
+                      data-color="all"
+                      className={`${
+                        color === "all" ? "all-btn active" : "all-btn"
+                      }`}
+                    >
+                      All
+                    </button>
+                  );
+                }
+                return (
+                  <button
+                    type="button"
+                    key={index}
+                    onClick={updateFilters}
+                    name="color"
+                    data-color={c}
+                    style={{ background: c }}
+                    className={`${
+                      color === c ? "color-btn active" : "color-btn"
+                    }`}
+                  >
+                    {/*//make sure name is the exact same as the state value-color*/}
+
+                    {color === c ? <FaCheck /> : null}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div className="form-control">
+            <h5>Price</h5>
+
+            {/*//make sure name is the exact same as the state value-price*/}
+
+            <p className="price">{formatPrice(price)}</p>
+            <input
+              type="range"
+              name="price"
+              onChange={updateFilters}
+              min={min_price}
+              max={max_price}
+              value={price}
+            />
+          </div>
+          <div className="form-control shipping">
+            <label htmlFor="shipping">Free Shipping</label>
+
+            {/*//make sure name is the exact same as the state value-shipping*/}
+            <input
+              type="checkbox"
+              id="shipping"
+              name="shipping"
+              checked={shipping}
+              onChange={updateFilters}
+            />
+          </div>
+        </form>
+        <button type="button" className="clear-btn" onClick={clearFilters}>
+          clear filters
+        </button>
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   .form-control {
@@ -106,6 +256,6 @@ const Wrapper = styled.section`
       top: 1rem;
     }
   }
-`
+`;
 
-export default Filters
+export default Filters;
