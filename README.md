@@ -10,13 +10,13 @@ Check out our comfy sloth products for the very best in unique or custom, handma
 
 To run this project, install it locally using npm:
 
-$ npm install
-$ npm run dev
+1. $ npm install
+2. $ npm run dev
 
-## Set up your .env file with your values to run this project.
+### Set up your .env file with your values to run this project.
 
 .env vars :
-REACT_APP_AUTH_DOMAIN
-REACT_APP_CLIENT_ID
-REACT_APP_STRIPE_PUBLIC_KEY
-REACT_APP_STRIPE_SECRET_KEY
+1. REACT_APP_AUTH_DOMAIN
+2. REACT_APP_CLIENT_ID
+3. REACT_APP_STRIPE_PUBLIC_KEY
+4. REACT_APP_STRIPE_SECRET_KEY
