@@ -26,18 +26,21 @@ const FeaturedProducts = () => {
       <div className="title">
         <h2>featured products</h2>
         <div className="underline"></div>
-        <div className="section-center featured">
-          {featured.slice(0, 3).map((f) => (
-            <Product
-              key={f.id}
-              image={f.image}
-              name={f.name}
-              price={f.price}
-              id={f.id}
-            />
-          ))}
-        </div>
       </div>
+      <div className="section-center featured">
+        {featured.slice(0, 3).map((f) => (
+          <Product
+            key={f.id}
+            image={f.image}
+            name={f.name}
+            price={f.price}
+            id={f.id}
+          />
+        ))}
+      </div>
+      <Link to="/products" className="btn">
+        all products
+      </Link>
     </Wrapper>
   );
 };
