@@ -1,10 +1,10 @@
-# Ecart_App - using Auth0(for Authorization) and Stripe(for payment using Netlify)
+# ComfySLoth - using Auth0(for Authorization) and Stripe(for payment using Netlify)
 
 ## Project URL :
 
 https://comfyslothapp.netlify.app/
 
-Check out our comfy sloth products for the very best in unique or custom, handmade pieces from our shops.
+Check out our products for the very best in unique or custom, handmade pieces from our shops.
 
 ## Installation
 
