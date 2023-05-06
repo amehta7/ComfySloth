@@ -1,4 +1,4 @@
-# ComfySLoth - using Auth0(for Authorization) and Stripe(for payment using Netlify)
+# ComfySloth - using Auth0(for Authorization) and Stripe(for payment using Netlify)
 
 ## Project URL :
 
