@@ -1,19 +1,19 @@
-# ComfySloth - using Auth0(for Authorization) and Stripe(for payment using Netlify)
+#### ComfySloth
 
-## Project URL :
+- Designed and developed ComfySloth, an e-commerce platform using React.js. Leveraged Axios for seamless data fetching, Styled-Components for a modern and visually appealing UI, Auth0 for secure user authentication, Stripe for payment processing, and React-icons for enhanced visual elements to provide a seamless online shopping experience.
+
+##### Project URL :
 
 https://comfyslothapp.netlify.app/
 
-Check out our products for the very best in unique or custom, handmade pieces from our shops.
-
-## Installation
+##### Installation
 
 To run this project, install it locally using npm:
 
 1. $ npm install
 2. $ npm run dev
 
-### Set up your .env file with your values to run this project.
+##### Set up your .env file with your values to run this project.
 
 .env vars :
 1. REACT_APP_AUTH_DOMAIN
